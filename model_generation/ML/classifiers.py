@@ -3,12 +3,12 @@ from sklearn.svm import SVC
 
 
 
-clfs = {'SVM':  {'clf': SVC(class_weight="balanced"),
+clfs_all = {'SVM':  {'clf': SVC(class_weight="balanced"),
                  'parms':  {'C':                    [0.1,0.5, 1,5, 10,50, 100,500, 1000],  
                             'gamma':                [1,0.5, 0.1,0.05, 0.01, 0.005, 0.001,0.0005, 0.0001], 
                             'kernel':               ['linear','rbf']}  ,
                 },
-                 
+                
         'RF':   {'clf': RandomForestClassifier(n_estimators=500, class_weight="balanced"),
                  'parms': {"max_depth":            [15,13,11,9,5,3,2,None],
                            "max_features":         [20,25,30,35,40,50,60,70,80,90,100],
@@ -25,6 +25,16 @@ clfs = {'SVM':  {'clf': SVC(class_weight="balanced"),
         
          
         }
+
+
+clfs = {'SVM':  {'clf': SVC(class_weight="balanced"),
+                 'parms':  {'C':                    [0.1,0.5, 1,5, 10,50, 100,500, 1000],  
+                            'gamma':                [1,0.5, 0.1,0.05, 0.01, 0.005, 0.001,0.0005, 0.0001], 
+                            'kernel':               ['linear','rbf']}  ,
+                }
+         
+        }
+
 
 
 

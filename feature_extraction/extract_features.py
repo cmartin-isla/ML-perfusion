@@ -34,6 +34,7 @@ from sklearn.svm import SVC
 from global_variables import *
 from visualization.utils import *
 from visualization.image_utils import *
+from feature_processing.utils import *
 
 import collections
 import pprint as pp
@@ -62,8 +63,8 @@ def extract_features(file_img,file_msk):
     
     #EXTRACTOR
     extractor = fe.RadiomicsFeaturesExtractor()
-    extractor.settings['normalize'] = False
-    extractor.settings['removeOutliers'] = False
+    extractor.settings['normalize'] = True
+    extractor.settings['removeOutliers'] = True
     extractor.settings['force2D'] = True
     extractor.settings['binWidth'] = 25
     
@@ -82,6 +83,9 @@ def extract_features(file_img,file_msk):
     #LOAD NIFTIS
     img_data = nib.load(file_img)
     msk_data = nib.load(file_msk)
+    
+    print(img_data.get_fdata().shape,msk_data.get_fdata().shape)
+    print(file_img,file_msk)
     
     
     #CONVERT TO LISTS
@@ -112,7 +116,10 @@ def extract_features(file_img,file_msk):
         sitk_msk= sitk.GetImageFromArray(np.array(slice_msk, dtype=np.int16)) 
       
 
-        features = extractor.execute(sitk_img, sitk_msk)
+        features = extractor.execute(sitk_img, sitk_msk)        
+        features = resort_dictionary(features)
+        
+        
         final_features = []
         
         for k,v in features.items():
@@ -125,21 +132,27 @@ def extract_features(file_img,file_msk):
                     all_features_dict[k] = []
                     all_features_dict[k].append(v)
                     
-                    
                 final_features.append(v)
+                print(k,v)
    
         all_final_features.append(final_features)
         
         t = t + 1
     
-    array_features = np.array(all_final_features).T
-    array_features = resize(array_features,(array_features.shape[0],30),order = 0,mode = 'edge',anti_aliasing = False)
+    array_features = np.array(all_final_features)
+    array_features = resize(array_features,(30,array_features.shape[1]),order = 0,mode = 'edge',anti_aliasing = False)
     
 
     
     scaler = MinMaxScaler()
     scaler.fit(array_features)
     array_features = scaler.transform(array_features) 
+    plt.imshow(array_features.T)
+    #pickle.dump(array_features.T, open("features_basal_0.f", "wb")) 
+
+    plt.show()
+    #plt.imshow(array_features)
+    
     
     #plt.imshow(array_features.T, cmap = plt.get_cmap('jet'))
     #show_imagegrid(comb_lst,3,int(np.ceil(len(comb_lst)/3)))
@@ -179,10 +192,8 @@ for index in range(0,n_files-1,4):
             basal = files[index ]
             basal_gt = files[index + 1]
          
-    print('adeno')
     adeno_fea = extract_features(os.path.join(folder,adeno),os.path.join(folder,adeno_gt))    
      
-    print('basal')
     basal_fea = extract_features(os.path.join(folder,basal),os.path.join(folder,basal_gt))
     
 
@@ -204,13 +215,15 @@ for index in range(0,n_files-1,4):
 #pickle.dump(all_patients_dict, open(os.path.join('extracted_features',"raw_timeseries_bw25.ts"), "wb")) 
 #pp.pprint(all_patients_dict,indent = 4)
 
+
 import json
 from utils.to_json import *
-with open('raw_timeseries_bw25.json', 'w') as fp:
+with open('raw_timeseries_bw25_norm.json', 'w') as fp:
     
     ret = to_json(all_patients_dict)
     fp.write(ret)
     #json.dump(all_patients_dict, fp, sort_keys=True, indent=2)
+
            
         
     

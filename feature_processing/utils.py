@@ -1,4 +1,4 @@
-import json
+import json,os,pickle
 import numpy as np
 import collections
 import pprint as pp
@@ -34,6 +34,7 @@ def difference_features(json_file,resampling = 30, verbose = 0):
     
     X = []
     y = []
+    subjects = []
     
     for k,v in data.items():
         
@@ -46,6 +47,7 @@ def difference_features(json_file,resampling = 30, verbose = 0):
 
         X.append(np.ravel((basal-adeno).T))
         y.append(outcome)
+        subjects.append(id)
         
     X = np.array(X)
     y = np.array(y)
@@ -56,8 +58,38 @@ def difference_features(json_file,resampling = 30, verbose = 0):
         print('PREPROCESSING SUMMARY')
         pp.pprint(summary)
         
-    return X,y,feature_names,resampling
+    return X,y,feature_names,resampling,subjects
+
+
+def import_pickle_features(path):
+    
+    X = []
+    y = []
+    subjects = []
+    for file in sorted(os.listdir(path)):
+        data_mid = pickle.load(open(os.path.join(path,file), "rb"))
+        
+        subjects.append(file.split('_')[1].split('.')[0])
+        #basal_mid = np.nan_to_num(data_mid[0])
+        #adeno_mid = np.nan_to_num(data_mid[1])
+        
+        basal_mid = data_mid[0]
+        adeno_mid = data_mid[1]
+        data = (basal_mid-adeno_mid)
+      
+        X.append(np.ravel(data))
+        y.append(data_mid[2])
+        
+    X = np.array(X)
+    y = np.array(y)
+    return X,y,subjects
             
     
+def resort_dictionary(unsorted_dict):
     
+    keys = np.sort(list(unsorted_dict.keys()))
+    list_of_tuples = [(key, unsorted_dict[key]) for key in keys]
+    sorted_dict = collections.OrderedDict(list_of_tuples)
+        
+    return sorted_dict
 
