@@ -1,0 +1,2 @@
+,estimator,min_score,mean_score,max_score,std_score,parameters
+0,AB,0.000,0.500,1.000,0.274,"{'clf__n_estimators': 100, 'clf__algorithm': 'SAMME'}"

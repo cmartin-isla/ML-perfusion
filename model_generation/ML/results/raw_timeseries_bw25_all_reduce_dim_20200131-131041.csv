@@ -1,0 +1,49 @@
+,estimator,min_score,mean_score,max_score,std_score,parameters
+10,AB,0.250,0.650,0.750,0.166,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 30, 'classification__n_estimators': 1000, 'reduce_dim': FactorAnalysis(copy=True, iterated_power=3, max_iter=1000, n_components=None,
+               noise_variance_init=None, random_state=0,
+               svd_method='randomized', tol=0.01)}"
+0,AB,0.250,0.625,1.000,0.230,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 10, 'classification__n_estimators': 1000, 'reduce_dim': PCA(copy=True, iterated_power=7, n_components=None, random_state=None,
+    svd_solver='auto', tol=0.0, whiten=False)}"
+4,AB,0.250,0.625,1.000,0.230,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 10, 'classification__n_estimators': 1000, 'reduce_dim': KernelPCA(alpha=1.0, coef0=1, copy_X=True, degree=3, eigen_solver='auto',
+          fit_inverse_transform=False, gamma=None, kernel='linear',
+          kernel_params=None, max_iter=None, n_components=None, n_jobs=None,
+          random_state=None, remove_zero_eig=False, tol=0)}"
+9,AB,0.000,0.625,1.000,0.256,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 20, 'classification__n_estimators': 1000, 'reduce_dim': FactorAnalysis(copy=True, iterated_power=3, max_iter=1000, n_components=None,
+               noise_variance_init=None, random_state=0,
+               svd_method='randomized', tol=0.01)}"
+2,AB,0.250,0.600,1.000,0.255,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 30, 'classification__n_estimators': 1000, 'reduce_dim': PCA(copy=True, iterated_power=7, n_components=None, random_state=None,
+    svd_solver='auto', tol=0.0, whiten=False)}"
+5,AB,0.250,0.600,1.000,0.278,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 20, 'classification__n_estimators': 1000, 'reduce_dim': KernelPCA(alpha=1.0, coef0=1, copy_X=True, degree=3, eigen_solver='auto',
+          fit_inverse_transform=False, gamma=None, kernel='linear',
+          kernel_params=None, max_iter=None, n_components=None, n_jobs=None,
+          random_state=None, remove_zero_eig=False, tol=0)}"
+6,AB,0.250,0.600,1.000,0.255,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 30, 'classification__n_estimators': 1000, 'reduce_dim': KernelPCA(alpha=1.0, coef0=1, copy_X=True, degree=3, eigen_solver='auto',
+          fit_inverse_transform=False, gamma=None, kernel='linear',
+          kernel_params=None, max_iter=None, n_components=None, n_jobs=None,
+          random_state=None, remove_zero_eig=False, tol=0)}"
+1,AB,0.250,0.575,1.000,0.297,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 20, 'classification__n_estimators': 1000, 'reduce_dim': PCA(copy=True, iterated_power=7, n_components=None, random_state=None,
+    svd_solver='auto', tol=0.0, whiten=False)}"
+12,AB,0.250,0.575,1.000,0.251,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 10, 'classification__n_estimators': 1000, 'reduce_dim': FastICA(algorithm='parallel', fun='logcosh', fun_args=None, max_iter=200,
+        n_components=None, random_state=None, tol=0.01, w_init=None,
+        whiten=True)}"
+14,AB,0.250,0.575,1.000,0.225,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 30, 'classification__n_estimators': 1000, 'reduce_dim': FastICA(algorithm='parallel', fun='logcosh', fun_args=None, max_iter=200,
+        n_components=None, random_state=None, tol=0.01, w_init=None,
+        whiten=True)}"
+8,AB,0.000,0.550,1.000,0.292,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 10, 'classification__n_estimators': 1000, 'reduce_dim': FactorAnalysis(copy=True, iterated_power=3, max_iter=1000, n_components=None,
+               noise_variance_init=None, random_state=0,
+               svd_method='randomized', tol=0.01)}"
+3,AB,0.000,0.525,1.000,0.325,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 36, 'classification__n_estimators': 1000, 'reduce_dim': PCA(copy=True, iterated_power=7, n_components=None, random_state=None,
+    svd_solver='auto', tol=0.0, whiten=False)}"
+7,AB,0.000,0.525,1.000,0.325,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 36, 'classification__n_estimators': 1000, 'reduce_dim': KernelPCA(alpha=1.0, coef0=1, copy_X=True, degree=3, eigen_solver='auto',
+          fit_inverse_transform=False, gamma=None, kernel='linear',
+          kernel_params=None, max_iter=None, n_components=None, n_jobs=None,
+          random_state=None, remove_zero_eig=False, tol=0)}"
+11,AB,0.000,0.525,1.000,0.325,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 36, 'classification__n_estimators': 1000, 'reduce_dim': FactorAnalysis(copy=True, iterated_power=3, max_iter=1000, n_components=None,
+               noise_variance_init=None, random_state=0,
+               svd_method='randomized', tol=0.01)}"
+15,AB,0.250,0.525,0.750,0.175,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 36, 'classification__n_estimators': 1000, 'reduce_dim': FastICA(algorithm='parallel', fun='logcosh', fun_args=None, max_iter=200,
+        n_components=None, random_state=None, tol=0.01, w_init=None,
+        whiten=True)}"
+13,AB,0.000,0.500,1.000,0.335,"{'classification__algorithm': 'SAMME', 'reduce_dim__n_components': 20, 'classification__n_estimators': 1000, 'reduce_dim': FastICA(algorithm='parallel', fun='logcosh', fun_args=None, max_iter=200,
+        n_components=None, random_state=None, tol=0.01, w_init=None,
+        whiten=True)}"
