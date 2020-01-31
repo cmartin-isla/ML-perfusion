@@ -1,3 +1,6 @@
+import sys,os
+sys.path.append(os.path.join('..','..'))
+
 from sklearn.model_selection import StratifiedKFold
 from feature_processing.utils import *
 
@@ -8,8 +11,6 @@ from EstimatorSelection.EstimatorSelectionHelper import *
 from classifiers.classifiers_4D_features import *
 from sklearn.model_selection import cross_val_score
 
-import warnings
-warnings.filterwarnings('ignore', 'statsmodels.tsa.ar_model.AR', FutureWarning)
 
 
 t = 10

@@ -1,3 +1,6 @@
+import sys,os
+sys.path.append(os.path.join('..','..'))
+
 from sklearn.model_selection import StratifiedKFold
 from feature_processing.utils import *
 
