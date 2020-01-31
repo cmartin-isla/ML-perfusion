@@ -5,13 +5,8 @@ import logging,os,pickle
 import datetime
 from sklearn.svm import SVC 
 from EstimatorSelection.EstimatorSelectionHelper import *
-from classifiers.classifiers_4D import *
+from classifiers.classifiers_4D_features import *
 from sklearn.model_selection import cross_val_score
-
-from tsfresh.examples.robot_execution_failures import download_robot_execution_failures
-from tsfresh.examples import load_robot_execution_failures
-from tsfresh.transformers import RelevantFeatureAugmenter
-from tsfresh.utilities.dataframe_functions import impute
 
 import warnings
 warnings.filterwarnings('ignore', 'statsmodels.tsa.ar_model.AR', FutureWarning)

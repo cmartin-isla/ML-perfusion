@@ -36,7 +36,7 @@ if __name__ == '__main__':
         
         
         helper.fit(X, y, scoring=None, n_jobs=6, cv = k_fold)
-        file_out = file_in.split('.')[0]+'_baseline_'+ execution_time + '.csv'
+        file_out = os.path.join('results',file_in.split('.')[0]+'_baseline_'+ execution_time + '.csv')
         helper.score_summary(sort_by='mean_score', out = file_out)
         
      
